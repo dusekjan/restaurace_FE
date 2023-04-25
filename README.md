@@ -1,3 +1,6 @@
+## Větev 'master' je označení fáze 'Automatizace správcovské části s Redux Toolkit Query'.
+## Všechny ostatní fáze o kterých pojednává diplomová práce jsou rozmístěny do jednotlivých větví.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
