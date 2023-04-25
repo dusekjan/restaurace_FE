@@ -1,0 +1,27 @@
+
+/* HOMEPAGE HAS CUSTOM STYLES FOR HEADER */
+header:not(.@{homepage-selector}) {
+  height: 350px;
+  h1 {
+    top: 0;
+    margin: 0;
+    width: 100%;
+    line-height: $height;
+    text-align: center;
+    position: absolute;
+  }
+
+  .background-anchor {
+    height: 350px;
+    background-color: black;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(3px) brightness(50%);
+
+    &::after {
+    --gradient-height: 30%;
+      .gradient-top-bottom;
+    }
+  }
+}

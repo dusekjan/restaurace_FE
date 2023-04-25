@@ -1,0 +1,29 @@
+.@{adminuserspage-selector} {
+  h2 {
+    margin-left: 8px;
+    text-align: left;
+    text-decoration: underline;
+  }
+
+  ul {
+    .list;
+  }
+
+  button.delete {
+    transition: 300ms;
+    width: 210px;
+    padding: 4px 0;
+    margin-top: 6px;
+
+    background-color: @dark-gray;
+    color: @dark-red;
+    border-color: @dark-red;
+
+    &:hover {
+      border-color: @dark-gray;
+      background-color: @dark-red;
+      color: @dark-gray;
+      font-weight: bold;
+    }
+  }
+}

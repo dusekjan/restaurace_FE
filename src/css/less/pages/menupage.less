@@ -1,0 +1,101 @@
+.@{menupage-selector} {
+  h2 {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    text-align: left;
+    background-color: fade(@dark-gray, 95);
+    margin: 0 0 0 8px;
+    line-height: 83px;
+    text-decoration: underline;
+  }
+
+  #basket-show-toggle {
+    .button-big;
+  }
+
+  #basket-content {
+    .flex-column;
+    margin: auto;
+    max-width: 600px;
+
+    &.hide {
+      display: none;
+    }
+
+    #price {
+      align-self: flex-end;
+      margin: 8px 0 8px 0;
+    }
+
+    #custom {
+      margin-top: 16px;
+    }
+
+    form {
+      padding-top: 0;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border: 1px solid @brighter;
+      button {
+        background-color: @light-green;
+      }
+    }
+  }
+
+  ul#basket-list, ul.food-list {
+    list-style: none;
+    padding: 0;
+
+    h3, p {
+      margin: 0;
+      text-align: left;
+    }
+  }
+
+  ul#basket-list {
+    width: 100%;
+    margin: 0;
+
+    li {
+      position: relative;
+      height: 45px;
+
+      & + li {
+        border-top: 1px solid @brighter;
+      }
+
+      &:last-child {
+        border-bottom: 1px solid @brighter;
+      }
+
+      span {
+        position: absolute;
+        line-height: $height;
+
+        &:first-child {
+          left: 8px;
+        }
+        &:last-child {
+          right: 8px;
+        }
+      }
+    }
+  }
+
+  ul.food-list {
+    .list;
+    li {
+      height: 170px;
+      align-items: flex-start;
+    }
+
+    p {
+      padding-right: 50px;
+    }
+
+    .right span {
+      font-size: 24px;
+    }
+  }
+}
