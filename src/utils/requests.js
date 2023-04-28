@@ -1,21 +1,21 @@
 
 export async function makeRequest(url, data, method) {
-    if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-        url = "http://localhost:5000" + url
-    }
-
     let opts = {
         method: "GET",
         headers: {"Content-Type": "application/json"},
-        credentials: "include"
     }
+
+    if (process.env.NODE_ENV !== "production") {
+        opts.credentials = "include"
+    }
+
     if (data){
         opts.body = JSON.stringify(data)
         opts.method = method || "POST"
     }
 
     try {
-        let response = await fetch(url, opts)
+        let response = await fetch(process.env.REACT_APP_SERVER_ADDRESS + url, opts)
         const json = await response.json()
 
         if (json.json_status >= 400 && json.json_status !== 401) {

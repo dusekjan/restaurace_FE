@@ -68,8 +68,8 @@ function ManageOrdersPage() {
 
         return (
             <>
-                <button className="logout" onClick={handleLogout}>ODHLÁSIT SE</button>
                 <button className="profile-management" onClick={handleProfileManagement} >{<><FaUser />SPRAVOVAT ÚČET</>}</button>
+                <button className="logout" onClick={handleLogout}>ODHLÁSIT SE</button>
                 <h2>VAŠE OBJEDNÁVKY</h2>
                 { orders.length === 0 ?
                     <h3>ZATÍM NEMÁTE ŽÁDNÉ OBJEDNÁVKY</h3> :

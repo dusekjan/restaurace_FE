@@ -2,6 +2,7 @@
   list-style: none;
   margin: 8px;
   padding: 0;
+
   & > li {
     width: 100%;
     .flex-row;
@@ -21,6 +22,21 @@
 
     .left {
       align-items: flex-start;
+      max-width: 80%;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (max-width: 850px) {
+    margin: 0;
+    & > li {
+      padding: 8px;
+      flex-direction: column;
+
+      .left {
+        max-width: initial;
+      }
+
     }
   }
 }

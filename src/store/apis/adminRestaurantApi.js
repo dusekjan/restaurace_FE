@@ -4,7 +4,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 const adminRestaurantApi = createApi({
   reducerPath: 'adminRestaurant',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000'
+    baseUrl: process.env.REACT_APP_SERVER_ADDRESS
   }),
   endpoints(builder) {
     return {
@@ -20,7 +20,7 @@ const adminRestaurantApi = createApi({
           return {
             url: '/restaurant-opened',
             method: 'GET',
-            credentials: 'include'
+            credentials: process.env.NODE_ENV !== "production" ? "include" : "same-origin"
           };
         },
       }),
@@ -32,7 +32,7 @@ const adminRestaurantApi = createApi({
           return {
             url: `/restaurant-opened`,
             method: 'PUT',
-            credentials: 'include',
+            credentials: process.env.NODE_ENV !== "production" ? "include" : "same-origin",
             body: {
               opened: opened,
             },

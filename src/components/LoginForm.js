@@ -5,6 +5,7 @@ import { MdEmail } from "react-icons/md"
 import {makeRequest} from "../utils/requests";
 import useUserContext from "../hooks/use-user-context";
 import {useNavigate} from "react-router-dom";
+import {isLoginFormValid} from "../utils/validators";
 
 function LoginForm() {
     const [ email, setEmail ] = useState("")
@@ -23,20 +24,32 @@ function LoginForm() {
 
     const handleOnSubmit = async (event) => {
         event.preventDefault()
-        // checkPasswords and Email on Server // TODO
-        submitButton.current.disabled = true;
-
         try {
-            const response = await makeRequest("/auth/login", {email, password });
-            if (response["json_status"] < 300){
-                await fetchUser()
-                navigate("/")
-            } else if (response["json_status"] === 433) {
-                alert("Použijte příhlášení pomocí Google účtu.")
+            submitButton.current.disabled = true;
+
+            if (!isLoginFormValid(email, password)) {
+                alert("Překontrolujte zadané údaje")
+                return
             }
 
-            // TODO errory
+            const response = await makeRequest("/auth/login", {email, password });
+            switch (response["json_status"]) {
+                case 200:
+                case 201:
+                    await fetchUser()
+                    navigate("/")
+                    break;
+                case 433:
+                    alert("Použijte příhlášení pomocí vašeho Google účtu.")
+                    break;
+                case 404:
+                    alert("Špatně zadaný email nebo heslo.")
+                    break;
+                default:
+                    alert("Nastala chyba.")
+            }
         } catch (e) {
+            console.log(e)
         }
         finally {
             submitButton.current.disabled = false
@@ -48,7 +61,7 @@ function LoginForm() {
             <Input
                 label={<>{<MdEmail/>}E-MAIL</>}
                 id="email"
-                type="email"
+                type="text"
                 placeholder="jan.novak@email.cz"
                 value={email}
                 onChange={handleEmailChange}/>
