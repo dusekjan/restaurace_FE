@@ -1,73 +1,21 @@
-## Větev 'master' je označení fáze 'Automatizace správcovské části s Redux Toolkit Query'.
-## Všechny ostatní fáze o kterých pojednává diplomová práce jsou rozmístěny do jednotlivých větví.
+# Projekt Restaurace frontend
+Toto je README pro frontend aplikace restaurace. Backend je taktéž veřejný git repozitář zde: https://github.com/dusekjan/restaurace_BE Doporučuji spouštět projekt v některém vývojovém prostředí, které dokáže samo najít aplikaci a spustit ji. Projekt je samozřejmě možné spustit i klasickými následujícími příkazy v hlavním adresáři.
 
-# Getting Started with Create React App
+## Automatizace správcovské části s Redux Toolkit Query
+Tato větev 'master' je označení finální fáze projektu s názvem 'Automatizace správcovské části s Redux Toolkit Query' o které pojednává diplomová práce.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Všechny fáze jsou rozmístěny do jednotlivých větví tohoto projektu:
+  - https://github.com/dusekjan/restaurace_FE/tree/1_Zakladni_pilire_aplikace
+  - https://github.com/dusekjan/restaurace_FE/tree/2_Smerovac_a_prihlasovaci_proces
+  - https://github.com/dusekjan/restaurace_FE/tree/3_Objednavkovy_system
+  - https://github.com/dusekjan/restaurace_FE/tree/4_Redux_a_prihlaseni_uzivatele
+  - https://github.com/dusekjan/restaurace_FE/tree/master
 
-## Available Scripts
+## Instalace potřebných závislostí před prvním spuštěním
+`npm install`
 
-In the project directory, you can run:
+## Spuštění projektu na adrese `localhost:3000` - ideální pro vývoj
+`npm start` Pro správné fungování komunikace se serverem při vývoji je nutné, aby backend byl spuštěn v `debug` módu.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Spuštění produkčního buildu
+`npm run build` Vytvoří/Nahradí složku .\build v tomto adresáři, která je vhodná pro uložení na server. 
