@@ -7,7 +7,7 @@ import { FaUser } from "react-icons/fa"
 
 import useUserContext from "../hooks/use-user-context";
 import Input from "./Input";
-import {isLoginFormValid, isRegistrationFormValid} from "../utils/validators";
+import {isRegistrationFormValid} from "../utils/validators";
 import PasswordInfo from "./PasswordInfo";
 
 

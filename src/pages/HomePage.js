@@ -6,8 +6,6 @@ import FoodHomePage from "../images/food-homepage.jpg"
 import HamburgerHomePage2 from "../images/hamburger2-homepage.jpg"
 import Pizza1 from "../images/pizza1.jpg"
 import Pizza2 from "../images/pizza2.jpg"
-import {useEffect} from "react";
-import {Link} from "react-router-dom";
 
 function HomePage() {
     const { user } = useUserContext()
