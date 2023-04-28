@@ -7,6 +7,8 @@ import { FaUser } from "react-icons/fa"
 
 import useUserContext from "../hooks/use-user-context";
 import Input from "./Input";
+import {isLoginFormValid, isRegistrationFormValid} from "../utils/validators";
+import PasswordInfo from "./PasswordInfo";
 
 
 function RegistrationForm() {
@@ -40,20 +42,31 @@ function RegistrationForm() {
 
     const handleSubmitForm = async (event) => {
         event.preventDefault()
-
-        // checkPasswords and Email on Server // TODO
-        submitButton.current.disabled = true;
-
         try {
+            submitButton.current.disabled = true;
+
+            if (password !== passwordRepeat) {
+                alert("Zadaná hesla se neshodují.")
+                return
+            } else if (!name) {
+                alert("Vyplňte vaše jméno.")
+                return
+            } else if (!isRegistrationFormValid(name, email, password)) {
+                alert("Překontrolujte zadané údaje")
+                return
+            }
+
             const response = await makeRequest("/auth/register", { name, email, password });
             if (response["json_status"] < 300){
                 await fetchUser()
                 navigate("/")
             } else if (response["json_status"] === 409){
                 alert("Uživatel s tímto emailem již existuje.")
+            } else {
+                alert("Nastala chyba.")
             }
-            // TODO errory
         } catch (e) {
+            console.log(e)
         }
         finally {
             submitButton.current.disabled = false
@@ -72,10 +85,11 @@ function RegistrationForm() {
             <Input
                 label={<>{<MdEmail/>}E-MAIL:</>}
                 id="email"
-                type="email"
+                type="text"
                 placeholder="vas@email.cz"
                 value={email}
                 onChange={handleChange}/>
+            <PasswordInfo />
             <Input
                 label={<>{<RiLockPasswordFill/>}HESLO:</>}
                 id="password"

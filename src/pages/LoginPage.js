@@ -6,15 +6,7 @@ import {makeRequest} from "../utils/requests";
 import useUserContext from "../hooks/use-user-context";
 import {FcGoogle} from "react-icons/fc";
 
-/**
- * Normally, the browser would render the HTML and, depending on the action,
- * automatically submit the data of the form based on each element's name attribute.
- * Although this default behavior still works in React.js,
- * it is highly advised to programmatically submit a form
- * by supplying your own custom controls on how data is processed by a component.
- * https://www.pluralsight.com/guides/form-submission-in-reactjs
- *
- */
+
 function LoginPage() {
     const navigate = useNavigate()
     const { fetchUser } = useUserContext()
@@ -43,6 +35,8 @@ function LoginPage() {
                 if (response.json_status < 300){
                     await fetchUser()
                     navigate("/")
+                } else if (response.json_status === 409) {
+                    alert("Uživatel s tímto emailem již existuje.")
                 } else {
                     console.log("Login with Google fail:", response)
                 }
