@@ -1,0 +1,28 @@
+
+.@{aboutandcontactpage-selector} {
+
+  h1 {
+    line-height: 50px;
+  }
+
+  section {
+    margin-top: 64px;
+    text-align: left;
+  }
+
+  .gallery {
+    .flex-column;
+
+    & > div {
+      .flex-row;
+    }
+
+    div img, div div {
+      width: 50%;
+    }
+
+    &.bottom-margin {
+      margin-bottom: 64px;
+    }
+  }
+}
