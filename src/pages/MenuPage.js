@@ -3,12 +3,9 @@ import FoodList from "../components/FoodList";
 import Basket from "../components/Basket";
 import {useEffect, useState} from "react";
 import {makeRequest} from "../utils/requests";
-import {useFetchRestaurantOpenedQuery} from "../store";
 
 function MenuPage() {
-    const { data: restaurantOpened } = useFetchRestaurantOpenedQuery()
     const [food, setFood] = useState([]);
-    const opened = restaurantOpened && restaurantOpened.data.opened
 
     useEffect(() => {
         async function fetchFood() {
@@ -53,12 +50,6 @@ function MenuPage() {
         setFood(changedFood)
     }
 
-    const closedContent =
-        <>
-            <h3>RESTAURACE NENÍ OTEVŘENÁ</h3>
-            <p>NELZE PROVÁDĚT OBJEDNÁVKY</p>
-        </>
-
     const renderedFoodList = Object.keys(classifiedFood).map((foodCategory) => {
         return <FoodList key={foodCategory} category={foodCategory} food={classifiedFood[foodCategory]} onChange={handleCountChange} />
     })
@@ -67,7 +58,7 @@ function MenuPage() {
         <>
             <Header title="MENU" backgroundImgPath="pizza1"></Header>
             <main className="menu">
-                { opened ? <Basket food={food} foodCountReset={foodCountReset}/> : closedContent }
+                <Basket food={food} foodCountReset={foodCountReset}/>
                 { renderedFoodList }
             </main>
         </>

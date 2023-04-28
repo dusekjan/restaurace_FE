@@ -8,8 +8,6 @@ import LoginPage from "./pages/LoginPage";
 import ErrorPage from "./pages/ErrorPage";
 import Layout from "./components/Layout";
 import ManageOrdersPage from "./pages/ManageOrdersPage";
-import AdminOrdersPage from "./pages/AdminOrdersPage";
-import AdminUsersPage from "./pages/AdminUsersPage";
 import ScrollToTop from "./components/ScrollToTop";
 import ManageProfilePage from "./pages/ManageProfilePage";
 
@@ -31,9 +29,6 @@ function App() {
 
                         <Route path="manage/orders" element={<ManageOrdersPage />} />
                         <Route path="manage/profile" element={<ManageProfilePage />} />
-
-                        <Route path="admin/orders" element={<AdminOrdersPage />} />
-                        <Route path="admin/users" element={<AdminUsersPage />} />
 
                         <Route path="*" element={<ErrorPage />} />
                     </Route>
