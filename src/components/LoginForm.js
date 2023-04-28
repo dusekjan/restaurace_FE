@@ -3,14 +3,12 @@ import Input from "./Input";
 import { RiLockPasswordFill } from "react-icons/ri"
 import { MdEmail } from "react-icons/md"
 import {makeRequest} from "../utils/requests";
-import useUserContext from "../hooks/use-user-context";
 import {useNavigate} from "react-router-dom";
 import {isLoginFormValid} from "../utils/validators";
 
 function LoginForm() {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
-    const { fetchUser } = useUserContext()
     const submitButton = useRef(null)
     const navigate = useNavigate()
 
@@ -36,7 +34,7 @@ function LoginForm() {
             switch (response["json_status"]) {
                 case 200:
                 case 201:
-                    await fetchUser()
+                    alert("Úspěšné přihlášení.")
                     navigate("/")
                     break;
                 case 433:

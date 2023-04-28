@@ -5,9 +5,8 @@ import { RiLockPasswordFill, RiRefreshFill } from "react-icons/ri"
 import { MdEmail } from "react-icons/md"
 import { FaUser } from "react-icons/fa"
 
-import useUserContext from "../hooks/use-user-context";
 import Input from "./Input";
-import {isLoginFormValid, isRegistrationFormValid} from "../utils/validators";
+import {isRegistrationFormValid} from "../utils/validators";
 import PasswordInfo from "./PasswordInfo";
 
 
@@ -16,7 +15,6 @@ function RegistrationForm() {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
     const [ passwordRepeat, setPasswordRepeat ] = useState("")
-    const { fetchUser } = useUserContext()
     const submitButton = useRef(null)
     const navigate = useNavigate()
 
@@ -58,7 +56,7 @@ function RegistrationForm() {
 
             const response = await makeRequest("/auth/register", { name, email, password });
             if (response["json_status"] < 300){
-                await fetchUser()
+                alert("Registrace proběhla v pořádku.")
                 navigate("/")
             } else if (response["json_status"] === 409){
                 alert("Uživatel s tímto emailem již existuje.")

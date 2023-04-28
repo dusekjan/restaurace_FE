@@ -1,21 +1,12 @@
-import useUserContext from "../hooks/use-user-context";
-
 import PizzaHomePage from "../images/pizza-homepage.jpg"
 import HamburgerHomePage from "../images/hamburger-homepage.jpg"
 import FoodHomePage from "../images/food-homepage.jpg"
 import HamburgerHomePage2 from "../images/hamburger2-homepage.jpg"
 import Pizza1 from "../images/pizza1.jpg"
 import Pizza2 from "../images/pizza2.jpg"
-import {useEffect} from "react";
-import {Link} from "react-router-dom";
 
 function HomePage() {
-    const { user } = useUserContext()
 
-    let name;
-    if (user.name) {
-        name = <h3>{user.name}, VÍTEJTE.</h3>
-    }
     return (
         <>
             <header className="homepage">
@@ -27,7 +18,6 @@ function HomePage() {
             <main className="homepage">
                 <section>
                     <h1>Pizza Python!</h1>
-                    {name || null}
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Duis pulvinar.</p>
                     <p>Integer imperdiet lectus quis justo. Fusce tellus. Duis pulvinar. Nullam lectus justo, vulputate eget mollis sed, tempor sed magna.</p>
                     <p>Phasellus et lorem id felis nonummy placerat. In sem justo, commodo ut, suscipit at, pharetra vitae, orci. Aenean vel massa quis mauris vehicula lacinia. Fusce tellus.</p>
