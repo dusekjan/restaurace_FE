@@ -1,0 +1,34 @@
+footer {
+  padding: 16px;
+  border-top: 1px solid @brighter;
+
+  ul {
+    list-style: none;
+    padding: 0 16px;
+  }
+
+  .flex-row;
+  & > div {
+    flex-basis: calc(100%/3);
+  }
+
+  .middle button{
+    margin: auto;
+  }
+  .right {
+    text-align: right;
+  }
+
+  @media (max-width: 1150px) {
+    .flex-column;
+    .middle {
+      display: none;
+    }
+    .right {
+      text-align: left;
+    }
+    & > div {
+      width: 100%;
+    }
+  }
+}

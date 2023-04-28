@@ -46,9 +46,17 @@ function Basket({ food, foodCountReset }) {
     const handleSubmitForm = async (event) => {
         event.preventDefault()
 
-        submitButton.current.disabled = true;
+        if (!street) {
+            alert("Vyplňte prosím ulici.")
+            return
+        }
+        if (!postal) {
+            alert("Vyplňte prosím PSČ.")
+            return
+        }
 
         try {
+            submitButton.current.disabled = true;
             let data = {
                 menu: [],
                 address: {city: "Praha", street, postal}
@@ -69,12 +77,13 @@ function Basket({ food, foodCountReset }) {
                 alert("Restaurace má již bohužel zavřeno.\nNení možné vytvářet objednávku.")
             }
             else {
-                console.log("NECO JE SPATNE  S OBJEDNAVKOU")
-            }// TODO errory
+                alert("Objednávka nebyla dokončena.")
+            }
 
             handleShowBasket()
             foodCountReset()
         } catch (e) {
+            console.log(e)
         }
         finally {
             submitButton.current.disabled = false
@@ -158,10 +167,21 @@ function Basket({ food, foodCountReset }) {
 
     const renderedFood = []
     food.forEach((food) => {
+        const mobile = window.innerWidth < 850
+
+        let info = <span>{food.category} - {food.title}</span>
+        if (mobile) {
+            info =
+                <>
+                    <div>{food.category}</div>
+                    <div>{food.title}</div>
+                </>
+        }
+
         if (food.count > 0) {
             renderedFood.push(
                 <li key={food.id} data-key={food.id}>
-                    <span>{food.category} - {food.title}</span>
+                    {info}
                     <span>{food.count}</span>
                 </li>
             )

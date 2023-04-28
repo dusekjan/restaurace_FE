@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import useUserContext from "../hooks/use-user-context";
 import { useEffect } from "react";
 import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 function Layout() {
     const { fetchUser } = useUserContext()
@@ -14,7 +15,7 @@ function Layout() {
         <>
             <Navigation />
             <Outlet />
-            <footer style={{height: "300px", textAlign: "center", lineHeight: "300px"}}>FOOTER</footer>
+            <Footer />
         </>
     )
 }

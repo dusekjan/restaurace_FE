@@ -45,7 +45,23 @@ nav {
       width: 30px;
       height: $width;
     }
-
   }
+
+   @media (max-width: 950px){
+     img, svg {
+       display: none;
+     }
+     #nav-links {
+       right: initial;
+       left: initial;
+       top: 12px;
+       width: 100%;
+       flex-wrap: wrap;
+
+       a {
+         margin-bottom: 20px;
+       }
+     }
+   }
 }
 
