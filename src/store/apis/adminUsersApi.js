@@ -4,7 +4,7 @@ import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 const adminUsersApi = createApi({
   reducerPath: 'adminUsers',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5000'
+    baseUrl: process.env.REACT_APP_SERVER_ADDRESS
   }),
   endpoints(builder) {
     return {
@@ -22,7 +22,7 @@ const adminUsersApi = createApi({
           return {
             url: '/user/admin/',
             method: 'GET',
-            credentials: 'include'
+            credentials: process.env.NODE_ENV !== "production" ? "include" : "same-origin"
           };
         },
       }),
@@ -34,7 +34,7 @@ const adminUsersApi = createApi({
           return {
             url: `/user/${userId}/admin/`,
             method: 'DELETE',
-            credentials: 'include'
+            credentials: process.env.NODE_ENV !== "production" ? "include" : "same-origin"
           };
         }})
     };

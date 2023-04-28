@@ -34,7 +34,7 @@ function FoodList({category, food, onChange}) {
                     <p>{ingredients}</p>
                 </div>
                 <div className="right">
-                    <span>{food.price} KČ</span>
+                    <span>{food.price}&nbsp;KČ</span>
                     {input}
                 </div>
             </li>

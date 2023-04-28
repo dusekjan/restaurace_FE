@@ -12,3 +12,21 @@ header.@{homepage-selector} {
     .gradient-top-bottom;
   }
 }
+
+.@{homepage-selector} {
+  h1 {
+    line-height: 50px;
+  }
+
+  .gallery {
+    .flex-column;
+
+    & > div {
+      .flex-row;
+    }
+
+    div img, div div {
+      width: 50%;
+    }
+  }
+}
