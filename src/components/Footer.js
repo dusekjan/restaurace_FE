@@ -1,9 +1,6 @@
 import React from 'react';
-import {useNavigate} from "react-router-dom";
 
 function Footer() {
-    const navigate = useNavigate()
-
     return (
         <footer>
             <div className="left">
@@ -15,7 +12,7 @@ function Footer() {
                 </ul>
             </div>
             <div className="middle">
-                <button className="button-big" onClick={() => navigate("/menu")}>Vytvořit objednávku</button>
+                <button className="button-big">Vytvořit objednávku</button>
             </div>
             <div className="right">
                 <h3>Otevírací doba</h3>

@@ -10,10 +10,7 @@ function Header({className, title, backgroundImgPath}) {
     const backgroundImage = images[backgroundImgPath] || Default
     return (
         <header className={className}>
-            <div className="background-anchor"
-                 style={{backgroundImage: `url('${backgroundImage}')`}}
-            >
-            </div>
+            <div className="background-anchor" style={{backgroundImage: `url('${backgroundImage}')`}}></div>
             <h1>{title}</h1>
         </header>
     );
